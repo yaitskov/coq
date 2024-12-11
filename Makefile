@@ -211,7 +211,7 @@ ireport:
 	dune build $(DUNEOPT) @install --profile=ireport
 
 clean:
-	rm -f .dune-stamp
+	rm -f $$(awk '/BEGIN REMOVE ON make clean/{flag=1; next} /END REMOVE ON make clean/{flag=0} flag' .gitignore)
 	dune clean
 
 # docgram
